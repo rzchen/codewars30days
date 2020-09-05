@@ -727,3 +727,16 @@ puts twice_as_old(65,30)  # 5
 puts twice_as_old(42,21)  # 0
 puts twice_as_old(22,1)   # 20
 puts twice_as_old(29,0)   # 29
+
+# =================================================================
+
+# 29. 「二的 N 次方」，當 n = 0，印出 2 的 0 次方；當 n = 2，印出 2 的 0 次方、2 的 1 次方、2 的 2 次房，以此類推。完成以下實作：
+
+def powers_of_two(n)
+  (0..n).map { |n| 2 ** n }
+  # (0..n).to_a.map { |n| 2 ** n }
+end
+
+p powers_of_two(0)   # [1]
+p powers_of_two(1)   # [1, 2]
+p powers_of_two(4)   # [1, 2, 4, 8, 16]
