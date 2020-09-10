@@ -5,8 +5,8 @@
 def printer_error(s)
     string_length = s.length
     # incorrect = s.split("").map(&:ord).select { |n| n > 109 }.count
-    incorrect = s.split("").select { |n| n > 'm' }.count
-    "#{incorrect}/#{string_length}"
+    # incorrect = s.split("").select { |n| n > 'm' }.count
+    # "#{incorrect}/#{string_length}"
     "#{s.scan(/[^a-m]/).count}/#{s.length}"
 end
 
