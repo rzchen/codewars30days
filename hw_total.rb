@@ -820,3 +820,50 @@ RSpec.describe do
     expect(my_languages({"C++" => 50, "ASM" => 10, "Haskell" => 20})).to eq []
   end
 end
+
+# =================================================================
+
+# L7-003 找出缺少的數字，例如 `[-3, -2, 1, 5]` 少了 -1、0、2、3、4 這幾個數字。
+
+def find_missing_numbers(array)
+  # if array.any?
+  #   (array[0]..array[-1]).to_a - array
+  # else
+  #   []
+  # end
+  if array.length < 2
+    []
+  else
+    [*array.min..array.max] - array
+  end
+end
+
+RSpec.describe do
+  it "找出缺少的數字" do
+    expect(find_missing_numbers([-3,-2,1,4])).to eq [-1,0,2,3]
+    expect(find_missing_numbers([-1,0,1,2,3,4])).to eq []
+    expect(find_missing_numbers([])).to eq []
+    expect(find_missing_numbers([0])).to eq []
+    expect(find_missing_numbers([-4,4])).to eq [-3,-2,-1,0,1,2,3]
+  end
+end
+
+# =================================================================
+
+# L7-004 工廠的某台印表機只能印出 a 到 m 的字，請完成實作內容，把不應該出現的字算出來
+
+def printer_error(s)
+  string_length = s.length
+  # incorrect = s.split("").map(&:ord).select { |n| n > 109 }.count
+  # incorrect = s.split("").select { |n| n > 'm' }.count
+  # "#{incorrect}/#{string_length}"
+  "#{s.scan(/[^a-m]/).count}/#{s.length}"
+end
+
+RSpec.describe do
+  it "不該出現的字" do
+    expect(printer_error("aaabbbbhaijjjm")).to eq '0/14'
+    expect(printer_error("aaaxbbbbyyhwawiwjjjwwm")).to eq '8/22'
+    expect(printer_error("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz")).to eq '3/56'
+  end
+end
