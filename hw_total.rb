@@ -887,3 +887,22 @@ RSpec.describe do
     expect(split_the_bill('A' => 40, 'B' => 25, 'X' => 10)).to eq({'A' => 15.00, 'B' => 0.00, 'X' => -15.00})
   end
 end
+
+# =================================================================
+
+# 6. 計算有幾個母音字母(a, e, i, o, u)
+
+# L7-006 計算有幾個母音字母(a, e, i, o, u)
+
+def vowel_count(string)
+  # string.chars.select { |n| n == 'a' || n == 'e' || n == 'i' || n == 'o' || n == 'u'}.count
+  string.count('aeiou')
+end
+
+RSpec.describe do
+  it "計算有幾個母音字母" do
+    expect(vowel_count("abracadabra")).to be 5
+    expect(vowel_count("5xruby")).to be 1
+    expect(vowel_count("iloveyou")).to be 5
+  end
+end
