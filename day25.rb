@@ -1,13 +1,14 @@
 def in_array(array1, array2)
-  result = []
-  array2.each do |a2|
-    array1.each do |a1|
-      if a2.include? a1
-        result << a1
-      end
-    end
-  end
-  result.uniq.sort
+  # result = []
+  # array2.each do |a2|
+  #   array1.each do |a1|
+  #     if a2.include? a1
+  #       result << a1
+  #     end
+  #   end
+  # end
+  # result.uniq.sort
+  array1.select{|s| array2.any?{|w| w.include?(s) } }.sort
 end
 
 
