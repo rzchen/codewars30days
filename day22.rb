@@ -1,7 +1,7 @@
 # L7-015 計算不重複元素的總合
 def non_repeat_sum(arr)
   # arr.select { |e| arr.count(e) == 1 }.sum
-  arr.select { |item| arr.count == 1 }.sum
+  arr.select { |item| arr.count(item) == 1 }.sum
 end
 
 RSpec.describe do
