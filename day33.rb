@@ -1,6 +1,5 @@
 def longest_palindrome s
   # s.chars.group_by { |n| s.chars.count(n) }.max_by { |k,v| k}[1].length
-  s.match(/^((.)(?1)\2|.?)$/)
 end
 
 RSpec.describe "longest_palindrome" do
